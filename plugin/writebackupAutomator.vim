@@ -12,7 +12,12 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS 
-"	004	16-Feb-2012	Never perform an automatic backup when the
+"   1.01.005	26-Feb-2012	Rename b:writebackup to b:WriteBackup to be
+"				consistent with the other configuration
+"				variables of the WriteBackup family, and to
+"				avoid connotation with the built-in
+"				'writebackup' setting.
+"   1.00.004	16-Feb-2012	Never perform an automatic backup when the
 "				original file was already modified today. 
 "   	003 	14-Feb-2012	Consider new default "redate" for
 "				g:WriteBackup_AvoidIdenticalBackups that renames
@@ -69,7 +74,7 @@ function! s:InterceptWrite()
     let l:backupFiles = writebackupVersionControl#GetAllBackupsForFile(l:filespec)
     if empty(l:backupFiles)
 	" No backups exist. 
-	if ! exists('b:writebackup') || ! b:writebackup
+	if ! exists('b:WriteBackup') || ! b:WriteBackup
 	    " Unless the buffer has been flagged, do not perform a backup. 
 	    return
 	endif
@@ -80,7 +85,7 @@ function! s:InterceptWrite()
 	    return
 	endif
     else
-	if exists('b:writebackup') && ! b:writebackup
+	if exists('b:WriteBackup') && ! b:WriteBackup
 	    " If the buffer has been negatively flagged, do not perform a
 	    " backup. 
 	    return

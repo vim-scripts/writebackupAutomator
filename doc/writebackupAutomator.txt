@@ -73,9 +73,9 @@ CONFIGURATION				  *writebackupAutomator-configuration*
 
 ==============================================================================
 INTEGRATION				    *writebackupAutomator-integration*
-							       |b:writebackup|
+							       |b:WriteBackup|
 You can influence the behavior of the writebackupAutomator plugin via the
-buffer-local variable b:writebackup. When this is 0, no automatic backup will
+buffer-local variable b:WriteBackup. When this is 0, no automatic backup will
 be done even when previous backups exist. Contrariwise, when set to 1, the
 buffer will be automatically backed up even when no backups exist so far. 
 You can use this variable in autocmds, filetype plugins or a local vimrc to
@@ -91,11 +91,17 @@ TODO						   *writebackupAutomator-todo*
 
 IDEAS						  *writebackupAutomator-ideas*
 
-- Consider b:writebackup = 2 to skip the file modification and identical
+- Consider b:WriteBackup = 2 to skip the file modification and identical
   backup checks. 
 
 ==============================================================================
 HISTORY						*writebackupAutomator-history*
+
+1.01	26-Feb-2012
+Rename b:writebackup to b:WriteBackup to be consistent with the other
+configuration variables of the WriteBackup family, and to avoid connotation
+with the built-in 'writebackup' setting.
+*** PLEASE UPDATE YOUR CONFIGURATION ***
 
 1.00	16-Feb-2012
 First published version. 
